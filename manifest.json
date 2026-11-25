@@ -1,0 +1,646 @@
+{
+  "title": "EgoEMG qualitative demo",
+  "generated_date": "2026-11-25",
+  "sample_policy": "Five evenly spaced eligible samples from each of the two public demo sessions.",
+  "disclaimer": "Curated functional examples, not benchmark results.",
+  "render_note": "Canonical wrist-normalized articulation render. The models predict joint angles, not global wrist position.",
+  "code_commit": "6b6e4172b7141d78eda9983a919e6dcbf3a754df",
+  "dataset_license": "CC BY-NC 4.0",
+  "checkpoint_sha256": {
+    "emgformer_s.ckpt": "71df50bb8373b38e43325c3ab21d4f96e13a6a4c2b4d7d6e1080bb51d72fee39",
+    "vision_vit_s.ckpt": "683e4088f43af43eee7f06be5f748528ff4c2431920c59290cc8aa9d6119cef0",
+    "fusion_vit_s_emgformer_s.ckpt": "4ad4299e48f296f7a67092f3fb4eb199cf6aa76f0c11de47d55b724ab20a6481"
+  },
+  "samples": [
+    {
+      "id": "sample-01",
+      "session": "sess_20260404_153935",
+      "activity": "Bare-hand gestures",
+      "camera_frame": 3075,
+      "image": "assets/images/sample-01.webp",
+      "models": {
+        "emgformer_s": {
+          "label": "EMGFormer-S",
+          "render": "assets/renders/sample-01-emgformer_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 4.911677837371826,
+              "finger_mae_deg": 4.849658966064453,
+              "wrist_mae_deg": 5.531862735748291,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 3.9105947017669678,
+              "finger_mae_deg": 3.645204544067383,
+              "wrist_mae_deg": 6.564496994018555,
+              "valid_angles": 22
+            }
+          ]
+        },
+        "vision_vit_s": {
+          "label": "ViT-S (RGB)",
+          "render": "assets/renders/sample-01-vision_vit_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 1.8784035444259644,
+              "finger_mae_deg": 1.899644136428833,
+              "wrist_mae_deg": 1.665999174118042,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 1.5051651000976562,
+              "finger_mae_deg": 1.4892032146453857,
+              "wrist_mae_deg": 1.6647847890853882,
+              "valid_angles": 22
+            }
+          ]
+        },
+        "fusion_vit_s_emgformer_s": {
+          "label": "Fusion (RGB + EMG)",
+          "render": "assets/renders/sample-01-fusion_vit_s_emgformer_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 1.4344258308410645,
+              "finger_mae_deg": 1.5289583206176758,
+              "wrist_mae_deg": 0.48910194635391235,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 2.713167667388916,
+              "finger_mae_deg": 2.7903780937194824,
+              "wrist_mae_deg": 1.9410655498504639,
+              "valid_angles": 22
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "sample-02",
+      "session": "sess_20260404_153935",
+      "activity": "Bare-hand gestures",
+      "camera_frame": 9867,
+      "image": "assets/images/sample-02.webp",
+      "models": {
+        "emgformer_s": {
+          "label": "EMGFormer-S",
+          "render": "assets/renders/sample-02-emgformer_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 5.109229564666748,
+              "finger_mae_deg": 5.414532661437988,
+              "wrist_mae_deg": 2.056199789047241,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 3.9147489070892334,
+              "finger_mae_deg": 3.620342969894409,
+              "wrist_mae_deg": 6.858806133270264,
+              "valid_angles": 22
+            }
+          ]
+        },
+        "vision_vit_s": {
+          "label": "ViT-S (RGB)",
+          "render": "assets/renders/sample-02-vision_vit_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 1.41242253780365,
+              "finger_mae_deg": 1.4370416402816772,
+              "wrist_mae_deg": 1.1662311553955078,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 1.3443833589553833,
+              "finger_mae_deg": 1.3729356527328491,
+              "wrist_mae_deg": 1.0588610172271729,
+              "valid_angles": 22
+            }
+          ]
+        },
+        "fusion_vit_s_emgformer_s": {
+          "label": "Fusion (RGB + EMG)",
+          "render": "assets/renders/sample-02-fusion_vit_s_emgformer_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 1.4052270650863647,
+              "finger_mae_deg": 1.4334256649017334,
+              "wrist_mae_deg": 1.1232408285140991,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 1.1711915731430054,
+              "finger_mae_deg": 1.180558204650879,
+              "wrist_mae_deg": 1.0775256156921387,
+              "valid_angles": 22
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "sample-03",
+      "session": "sess_20260404_153935",
+      "activity": "Bare-hand gestures",
+      "camera_frame": 17595,
+      "image": "assets/images/sample-03.webp",
+      "models": {
+        "emgformer_s": {
+          "label": "EMGFormer-S",
+          "render": "assets/renders/sample-03-emgformer_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 12.110085487365723,
+              "finger_mae_deg": 11.841054916381836,
+              "wrist_mae_deg": 14.800378799438477,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 5.757020950317383,
+              "finger_mae_deg": 5.642153739929199,
+              "wrist_mae_deg": 6.905686378479004,
+              "valid_angles": 22
+            }
+          ]
+        },
+        "vision_vit_s": {
+          "label": "ViT-S (RGB)",
+          "render": "assets/renders/sample-03-vision_vit_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 5.254226207733154,
+              "finger_mae_deg": 5.371016979217529,
+              "wrist_mae_deg": 4.086317539215088,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 3.26877498626709,
+              "finger_mae_deg": 3.249716281890869,
+              "wrist_mae_deg": 3.459360361099243,
+              "valid_angles": 22
+            }
+          ]
+        },
+        "fusion_vit_s_emgformer_s": {
+          "label": "Fusion (RGB + EMG)",
+          "render": "assets/renders/sample-03-fusion_vit_s_emgformer_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 4.8119587898254395,
+              "finger_mae_deg": 5.105635643005371,
+              "wrist_mae_deg": 1.8751899003982544,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 3.8529584407806396,
+              "finger_mae_deg": 3.669402599334717,
+              "wrist_mae_deg": 5.68851375579834,
+              "valid_angles": 22
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "sample-04",
+      "session": "sess_20260404_153935",
+      "activity": "Bare-hand gestures",
+      "camera_frame": 25323,
+      "image": "assets/images/sample-04.webp",
+      "models": {
+        "emgformer_s": {
+          "label": "EMGFormer-S",
+          "render": "assets/renders/sample-04-emgformer_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 7.696883678436279,
+              "finger_mae_deg": 7.809389591217041,
+              "wrist_mae_deg": 6.5718231201171875,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 7.857313632965088,
+              "finger_mae_deg": 8.323453903198242,
+              "wrist_mae_deg": 3.195903778076172,
+              "valid_angles": 22
+            }
+          ]
+        },
+        "vision_vit_s": {
+          "label": "ViT-S (RGB)",
+          "render": "assets/renders/sample-04-vision_vit_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 2.6957616806030273,
+              "finger_mae_deg": 2.738546133041382,
+              "wrist_mae_deg": 2.2679154872894287,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 2.319098711013794,
+              "finger_mae_deg": 2.506613254547119,
+              "wrist_mae_deg": 0.4439550042152405,
+              "valid_angles": 22
+            }
+          ]
+        },
+        "fusion_vit_s_emgformer_s": {
+          "label": "Fusion (RGB + EMG)",
+          "render": "assets/renders/sample-04-fusion_vit_s_emgformer_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 1.8434275388717651,
+              "finger_mae_deg": 1.9501292705535889,
+              "wrist_mae_deg": 0.7764089107513428,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 2.8420157432556152,
+              "finger_mae_deg": 2.948345899581909,
+              "wrist_mae_deg": 1.7787144184112549,
+              "valid_angles": 22
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "sample-05",
+      "session": "sess_20260404_153935",
+      "activity": "Bare-hand gestures",
+      "camera_frame": 33075,
+      "image": "assets/images/sample-05.webp",
+      "models": {
+        "emgformer_s": {
+          "label": "EMGFormer-S",
+          "render": "assets/renders/sample-05-emgformer_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 5.092109680175781,
+              "finger_mae_deg": 3.3107285499572754,
+              "wrist_mae_deg": 22.90592384338379,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 5.177221298217773,
+              "finger_mae_deg": 4.173769950866699,
+              "wrist_mae_deg": 15.211735725402832,
+              "valid_angles": 22
+            }
+          ]
+        },
+        "vision_vit_s": {
+          "label": "ViT-S (RGB)",
+          "render": "assets/renders/sample-05-vision_vit_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 2.7113759517669678,
+              "finger_mae_deg": 2.722839832305908,
+              "wrist_mae_deg": 2.5967369079589844,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 1.994475245475769,
+              "finger_mae_deg": 2.0463764667510986,
+              "wrist_mae_deg": 1.4754635095596313,
+              "valid_angles": 22
+            }
+          ]
+        },
+        "fusion_vit_s_emgformer_s": {
+          "label": "Fusion (RGB + EMG)",
+          "render": "assets/renders/sample-05-fusion_vit_s_emgformer_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 3.227463722229004,
+              "finger_mae_deg": 3.3951492309570312,
+              "wrist_mae_deg": 1.5506091117858887,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 1.8523627519607544,
+              "finger_mae_deg": 1.8073714971542358,
+              "wrist_mae_deg": 2.3022751808166504,
+              "valid_angles": 22
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "sample-06",
+      "session": "sess_20261016_161026",
+      "activity": "Hand-object interaction",
+      "camera_frame": 2893,
+      "image": "assets/images/sample-06.webp",
+      "models": {
+        "emgformer_s": {
+          "label": "EMGFormer-S",
+          "render": "assets/renders/sample-06-emgformer_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 5.749880790710449,
+              "finger_mae_deg": 5.361468315124512,
+              "wrist_mae_deg": 9.634002685546875,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 8.724526405334473,
+              "finger_mae_deg": 8.069952964782715,
+              "wrist_mae_deg": 15.27025032043457,
+              "valid_angles": 22
+            }
+          ]
+        },
+        "vision_vit_s": {
+          "label": "ViT-S (RGB)",
+          "render": "assets/renders/sample-06-vision_vit_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 4.993870258331299,
+              "finger_mae_deg": 4.896945953369141,
+              "wrist_mae_deg": 5.96311092376709,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 4.008472919464111,
+              "finger_mae_deg": 4.143725872039795,
+              "wrist_mae_deg": 2.655946731567383,
+              "valid_angles": 22
+            }
+          ]
+        },
+        "fusion_vit_s_emgformer_s": {
+          "label": "Fusion (RGB + EMG)",
+          "render": "assets/renders/sample-06-fusion_vit_s_emgformer_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 4.633273601531982,
+              "finger_mae_deg": 4.442173957824707,
+              "wrist_mae_deg": 6.544271469116211,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 3.8539817333221436,
+              "finger_mae_deg": 4.041937351226807,
+              "wrist_mae_deg": 1.9744285345077515,
+              "valid_angles": 22
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "sample-07",
+      "session": "sess_20261016_161026",
+      "activity": "Hand-object interaction",
+      "camera_frame": 10117,
+      "image": "assets/images/sample-07.webp",
+      "models": {
+        "emgformer_s": {
+          "label": "EMGFormer-S",
+          "render": "assets/renders/sample-07-emgformer_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 10.470208168029785,
+              "finger_mae_deg": 10.581945419311523,
+              "wrist_mae_deg": 9.352828025817871,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 5.140255928039551,
+              "finger_mae_deg": 4.453606605529785,
+              "wrist_mae_deg": 12.006750106811523,
+              "valid_angles": 22
+            }
+          ]
+        },
+        "vision_vit_s": {
+          "label": "ViT-S (RGB)",
+          "render": "assets/renders/sample-07-vision_vit_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 4.217128276824951,
+              "finger_mae_deg": 4.168401718139648,
+              "wrist_mae_deg": 4.704394817352295,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 2.207047462463379,
+              "finger_mae_deg": 2.0826196670532227,
+              "wrist_mae_deg": 3.451324462890625,
+              "valid_angles": 22
+            }
+          ]
+        },
+        "fusion_vit_s_emgformer_s": {
+          "label": "Fusion (RGB + EMG)",
+          "render": "assets/renders/sample-07-fusion_vit_s_emgformer_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 4.952454566955566,
+              "finger_mae_deg": 4.803121089935303,
+              "wrist_mae_deg": 6.445789337158203,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 1.6798003911972046,
+              "finger_mae_deg": 1.7002407312393188,
+              "wrist_mae_deg": 1.475398063659668,
+              "valid_angles": 22
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "sample-08",
+      "session": "sess_20261016_161026",
+      "activity": "Hand-object interaction",
+      "camera_frame": 17389,
+      "image": "assets/images/sample-08.webp",
+      "models": {
+        "emgformer_s": {
+          "label": "EMGFormer-S",
+          "render": "assets/renders/sample-08-emgformer_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 8.883589744567871,
+              "finger_mae_deg": 8.956247329711914,
+              "wrist_mae_deg": 8.157010078430176,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 13.0258207321167,
+              "finger_mae_deg": 12.59119987487793,
+              "wrist_mae_deg": 17.372034072875977,
+              "valid_angles": 22
+            }
+          ]
+        },
+        "vision_vit_s": {
+          "label": "ViT-S (RGB)",
+          "render": "assets/renders/sample-08-vision_vit_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 3.9498801231384277,
+              "finger_mae_deg": 3.94122576713562,
+              "wrist_mae_deg": 4.0364203453063965,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 7.738122940063477,
+              "finger_mae_deg": 8.223225593566895,
+              "wrist_mae_deg": 2.887096405029297,
+              "valid_angles": 22
+            }
+          ]
+        },
+        "fusion_vit_s_emgformer_s": {
+          "label": "Fusion (RGB + EMG)",
+          "render": "assets/renders/sample-08-fusion_vit_s_emgformer_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 3.6830995082855225,
+              "finger_mae_deg": 3.690519332885742,
+              "wrist_mae_deg": 3.6089043617248535,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 5.744128704071045,
+              "finger_mae_deg": 6.165656089782715,
+              "wrist_mae_deg": 1.528855323791504,
+              "valid_angles": 22
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "sample-09",
+      "session": "sess_20261016_161026",
+      "activity": "Hand-object interaction",
+      "camera_frame": 25884,
+      "image": "assets/images/sample-09.webp",
+      "models": {
+        "emgformer_s": {
+          "label": "EMGFormer-S",
+          "render": "assets/renders/sample-09-emgformer_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 11.510629653930664,
+              "finger_mae_deg": 10.897161483764648,
+              "wrist_mae_deg": 17.645309448242188,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 10.929218292236328,
+              "finger_mae_deg": 11.761799812316895,
+              "wrist_mae_deg": 2.6034069061279297,
+              "valid_angles": 22
+            }
+          ]
+        },
+        "vision_vit_s": {
+          "label": "ViT-S (RGB)",
+          "render": "assets/renders/sample-09-vision_vit_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 8.866275787353516,
+              "finger_mae_deg": 9.116498947143555,
+              "wrist_mae_deg": 6.364044666290283,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 10.481446266174316,
+              "finger_mae_deg": 10.340692520141602,
+              "wrist_mae_deg": 11.888994216918945,
+              "valid_angles": 22
+            }
+          ]
+        },
+        "fusion_vit_s_emgformer_s": {
+          "label": "Fusion (RGB + EMG)",
+          "render": "assets/renders/sample-09-fusion_vit_s_emgformer_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 9.270864486694336,
+              "finger_mae_deg": 9.434164047241211,
+              "wrist_mae_deg": 7.6378631591796875,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 9.330885887145996,
+              "finger_mae_deg": 9.260727882385254,
+              "wrist_mae_deg": 10.032468795776367,
+              "valid_angles": 22
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "sample-10",
+      "session": "sess_20261016_161026",
+      "activity": "Hand-object interaction",
+      "camera_frame": 33108,
+      "image": "assets/images/sample-10.webp",
+      "models": {
+        "emgformer_s": {
+          "label": "EMGFormer-S",
+          "render": "assets/renders/sample-10-emgformer_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 9.493012428283691,
+              "finger_mae_deg": 9.991349220275879,
+              "wrist_mae_deg": 4.5096540451049805,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 8.40951919555664,
+              "finger_mae_deg": 8.166117668151855,
+              "wrist_mae_deg": 10.843528747558594,
+              "valid_angles": 22
+            }
+          ]
+        },
+        "vision_vit_s": {
+          "label": "ViT-S (RGB)",
+          "render": "assets/renders/sample-10-vision_vit_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 11.611968040466309,
+              "finger_mae_deg": 11.996976852416992,
+              "wrist_mae_deg": 7.7618865966796875,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 11.078731536865234,
+              "finger_mae_deg": 11.686431884765625,
+              "wrist_mae_deg": 5.001729965209961,
+              "valid_angles": 22
+            }
+          ]
+        },
+        "fusion_vit_s_emgformer_s": {
+          "label": "Fusion (RGB + EMG)",
+          "render": "assets/renders/sample-10-fusion_vit_s_emgformer_s.png",
+          "hands": [
+            {
+              "overall_mae_deg": 8.265359878540039,
+              "finger_mae_deg": 8.374580383300781,
+              "wrist_mae_deg": 7.173153877258301,
+              "valid_angles": 22
+            },
+            {
+              "overall_mae_deg": 11.057257652282715,
+              "finger_mae_deg": 11.107999801635742,
+              "wrist_mae_deg": 10.549846649169922,
+              "valid_angles": 22
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

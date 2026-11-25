@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ten qualitative EgoEMG examples comparing ground-truth and predicted hand articulation.">
+  <title>EgoEMG · GT vs Prediction</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07101d;
+      --surface: #0c1828;
+      --surface-2: #111f32;
+      --line: #24354c;
+      --text: #edf4fb;
+      --muted: #9eb0c5;
+      --green: #39d98a;
+      --red: #ff5d73;
+      --blue: #65a8ff;
+      --cyan: #62d4e8;
+      --shadow: 0 18px 50px rgba(0, 0, 0, .24);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 12% -4%, rgba(60, 119, 210, .24), transparent 34rem),
+        radial-gradient(circle at 90% 12%, rgba(45, 198, 178, .12), transparent 28rem),
+        var(--bg);
+      color: var(--text);
+    }
+    a { color: #8ec5ff; }
+    button, select { font: inherit; }
+    .wrap { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+    header { padding: 72px 0 38px; }
+    .eyebrow {
+      color: var(--cyan);
+      font-size: .78rem;
+      font-weight: 750;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    h1 { margin: 10px 0 12px; font-size: clamp(2.3rem, 6vw, 5.1rem); line-height: .98; letter-spacing: -.055em; }
+    .lede { max-width: 780px; margin: 0; color: #c3d1df; font-size: clamp(1rem, 2vw, 1.24rem); line-height: 1.65; }
+    .notice {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-top: 28px;
+      padding: 15px 17px;
+      max-width: 860px;
+      border: 1px solid rgba(98, 212, 232, .26);
+      border-radius: 14px;
+      background: rgba(98, 212, 232, .07);
+      color: #cfe6eb;
+      line-height: 1.5;
+    }
+    .notice strong { color: #effcff; white-space: nowrap; }
+    .legend { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 22px; color: var(--muted); font-size: .92rem; }
+    .legend span { display: inline-flex; gap: 8px; align-items: center; }
+    .swatch { width: 11px; height: 11px; border-radius: 50%; }
+    .swatch.gt { background: var(--green); }
+    .swatch.pred { background: var(--red); }
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-block: 1px solid rgba(70, 91, 119, .55);
+      background: rgba(7, 16, 29, .86);
+      backdrop-filter: blur(16px);
+    }
+    .toolbar-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 12px 0; }
+    .controls { display: flex; flex-wrap: wrap; gap: 9px; }
+    .control-label { align-self: center; margin-right: 4px; color: var(--muted); font-size: .82rem; font-weight: 650; text-transform: uppercase; letter-spacing: .08em; }
+    .pill {
+      min-height: 42px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: #c9d6e4;
+      cursor: pointer;
+      transition: border-color .15s ease, background .15s ease, color .15s ease, transform .15s ease;
+    }
+    .pill:hover { border-color: #4d688a; color: white; transform: translateY(-1px); }
+    .pill:focus-visible { outline: 3px solid rgba(101, 168, 255, .35); outline-offset: 2px; }
+    .pill[aria-pressed="true"] { border-color: #6caeff; background: rgba(101, 168, 255, .16); color: white; }
+    .count { color: var(--muted); font-size: .9rem; white-space: nowrap; }
+    main { padding: 38px 0 72px; }
+    .grid { display: grid; gap: 24px; }
+    .sample-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(17, 31, 50, .96), rgba(10, 23, 39, .96));
+      box-shadow: var(--shadow);
+    }
+    .card-head { display: flex; justify-content: space-between; gap: 18px; align-items: center; padding: 18px 20px; border-bottom: 1px solid var(--line); }
+    .sample-title { margin: 0; font-size: 1.08rem; letter-spacing: -.01em; }
+    .sample-meta { margin-top: 4px; color: var(--muted); font-size: .84rem; }
+    .tag { flex: none; padding: 6px 10px; border-radius: 999px; background: rgba(98, 212, 232, .1); color: #a9eaf4; font-size: .78rem; }
+    .visuals { display: grid; grid-template-columns: minmax(210px, .54fr) minmax(440px, 1.46fr); gap: 1px; background: var(--line); }
+    figure { margin: 0; min-width: 0; background: #091423; }
+    .rgb-wrap { display: grid; place-items: center; height: 100%; min-height: 390px; padding: 20px; }
+    .rgb-wrap img { display: block; width: min(100%, 310px); max-height: 440px; object-fit: contain; border-radius: 12px; background: #03070d; }
+    .render-wrap { display: grid; place-items: center; min-height: 390px; background: #08111f; }
+    .render-wrap img { display: block; width: 100%; height: auto; }
+    figcaption { padding: 10px 14px; color: var(--muted); font-size: .78rem; text-align: center; border-top: 1px solid rgba(36, 53, 76, .65); }
+    .metrics { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+    .metric { padding: 15px 17px; border-right: 1px solid var(--line); }
+    .metric:last-child { border-right: 0; }
+    .metric-label { color: var(--muted); font-size: .73rem; line-height: 1.35; }
+    .metric-value { margin-top: 4px; font-size: 1.12rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .empty { padding: 60px 20px; text-align: center; color: var(--muted); }
+    .about { margin-top: 50px; padding-top: 34px; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1fr; gap: 38px; }
+    .about h2 { margin: 0 0 12px; font-size: 1.25rem; }
+    .about p, .about li { color: #afc0d2; line-height: 1.65; }
+    .about ul { padding-left: 20px; }
+    code { color: #d8e9fb; overflow-wrap: anywhere; }
+    footer { padding: 24px 0 44px; color: #7890a8; font-size: .82rem; }
+    @media (max-width: 900px) {
+      .toolbar { position: static; }
+      .toolbar-inner { align-items: flex-start; flex-direction: column; }
+      .visuals { grid-template-columns: 1fr; }
+      .rgb-wrap { min-height: auto; }
+      .metrics { grid-template-columns: repeat(3, 1fr); }
+      .metric:nth-child(3) { border-right: 0; }
+      .metric:nth-child(-n+3) { border-bottom: 1px solid var(--line); }
+      .about { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 20px, 1180px); }
+      header { padding-top: 44px; }
+      .notice { flex-direction: column; }
+      .card-head { align-items: flex-start; }
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+      .metric:nth-child(2n) { border-right: 0; }
+      .metric:nth-child(-n+4) { border-bottom: 1px solid var(--line); }
+      .metric:nth-child(3) { border-right: 1px solid var(--line); }
+      .pill { flex: 1 1 auto; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .pill { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <div class="eyebrow">EgoEMG qualitative viewer</div>
+    <h1>Ground truth,<br>meet prediction.</h1>
+    <p class="lede">Ten curated frames from the two public EgoEMG demo sessions. Switch among EMGFormer-S, the RGB ViT-S baseline, and RGB+EMG fusion to compare bilateral hand articulation.</p>
+    <div class="notice">
+      <strong>Read this first</strong>
+      <span>These are functional examples, not benchmark results. The skeleton is a canonical wrist-normalized articulation render. The models predict joint angles; they do not predict global wrist position.</span>
+    </div>
+    <div class="legend" aria-label="Skeleton legend">
+      <span><i class="swatch gt" aria-hidden="true"></i>Ground truth</span>
+      <span><i class="swatch pred" aria-hidden="true"></i>Prediction</span>
+      <span>MAE is reported in degrees over valid joint-angle labels.</span>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <div class="wrap toolbar-inner">
+      <div class="controls" id="model-controls" aria-label="Choose model"></div>
+      <div class="controls" id="session-controls" aria-label="Filter session"></div>
+      <div class="count" id="result-count" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <section class="grid" id="sample-grid" aria-live="polite"></section>
+    <section class="about">
+      <div>
+        <h2>How the examples were selected</h2>
+        <p>Five eligible frames were sampled at evenly spaced positions from each 10-minute public demo clip. Every selected frame has bilateral EMG windows and valid finger-angle labels. Selection was independent of model error.</p>
+        <ul>
+          <li>Bare-hand gestures: <code>sess_20260404_153935</code></li>
+          <li>Hand-object interaction: <code>sess_20261016_161026</code></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Reproducibility and license</h2>
+        <p>Generated with official code commit <code>6b6e4172b7141d78eda9983a919e6dcbf3a754df</code> and the published S checkpoints. Exact checkpoint hashes and per-frame metrics are in <a href="manifest.json">manifest.json</a>.</p>
+        <p>EgoEMG-authored demo recordings and annotations are licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>. This noncommercial adaptation attributes the EgoEMG authors and cites <a href="https://arxiv.org/abs/2605.05712">arXiv:2605.05712</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">Published as a compact qualitative inspection aid. No checkpoints, raw sensor streams, private paths, or credentials are included.</footer>
+
+  <template id="sample-template">
+    <article class="sample-card">
+      <div class="card-head">
+        <div>
+          <h2 class="sample-title"></h2>
+          <div class="sample-meta"></div>
+        </div>
+        <span class="tag"></span>
+      </div>
+      <div class="visuals">
+        <figure>
+          <div class="rgb-wrap"><img class="rgb" loading="lazy" alt=""></div>
+          <figcaption>Public demo RGB frame</figcaption>
+        </figure>
+        <figure>
+          <div class="render-wrap"><img class="render" loading="lazy" alt=""></div>
+          <figcaption>GT and prediction · canonical wrist-normalized render</figcaption>
+        </figure>
+      </div>
+      <div class="metrics"></div>
+    </article>
+  </template>
+
+  <script>
+    const modelOrder = ['emgformer_s', 'vision_vit_s', 'fusion_vit_s_emgformer_s'];
+    const sessionOptions = [
+      ['all', 'All examples'],
+      ['sess_20260404_153935', 'Bare-hand'],
+      ['sess_20261016_161026', 'Object interaction']
+    ];
+    const state = { model: 'fusion_vit_s_emgformer_s', session: 'all', manifest: null };
+    const fmt = value => value == null ? 'n/a' : `${value.toFixed(2)}°`;
+
+    function makePill(label, pressed, onClick) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'pill';
+      button.textContent = label;
+      button.setAttribute('aria-pressed', String(pressed));
+      button.addEventListener('click', onClick);
+      return button;
+    }
+
+    function renderControls() {
+      const modelControls = document.querySelector('#model-controls');
+      modelControls.replaceChildren();
+      const modelLabel = document.createElement('span');
+      modelLabel.className = 'control-label';
+      modelLabel.textContent = 'Model';
+      modelControls.append(modelLabel);
+      const first = state.manifest.samples[0];
+      modelOrder.forEach(key => {
+        modelControls.append(makePill(first.models[key].label, state.model === key, () => {
+          state.model = key;
+          renderControls();
+          renderSamples();
+        }));
+      });
+
+      const sessionControls = document.querySelector('#session-controls');
+      sessionControls.replaceChildren();
+      const filterLabel = document.createElement('span');
+      filterLabel.className = 'control-label';
+      filterLabel.textContent = 'Session';
+      sessionControls.append(filterLabel);
+      sessionOptions.forEach(([key, label]) => {
+        sessionControls.append(makePill(label, state.session === key, () => {
+          state.session = key;
+          renderControls();
+          renderSamples();
+        }));
+      });
+    }
+
+    function addMetric(container, label, value) {
+      const item = document.createElement('div');
+      item.className = 'metric';
+      item.innerHTML = `<div class="metric-label">${label}</div><div class="metric-value">${fmt(value)}</div>`;
+      container.append(item);
+    }
+
+    function renderSamples() {
+      const grid = document.querySelector('#sample-grid');
+      grid.replaceChildren();
+      const samples = state.manifest.samples.filter(sample => state.session === 'all' || sample.session === state.session);
+      document.querySelector('#result-count').textContent = `${samples.length} of ${state.manifest.samples.length} examples`;
+      const template = document.querySelector('#sample-template');
+      samples.forEach((sample, index) => {
+        const fragment = template.content.cloneNode(true);
+        const model = sample.models[state.model];
+        fragment.querySelector('.sample-title').textContent = `Example ${sample.id.slice(-2)}`;
+        fragment.querySelector('.sample-meta').textContent = `${sample.session} · camera frame ${sample.camera_frame.toLocaleString()}`;
+        fragment.querySelector('.tag').textContent = sample.activity;
+        const rgb = fragment.querySelector('.rgb');
+        rgb.src = sample.image;
+        rgb.alt = `${sample.activity} RGB frame for ${sample.id}`;
+        const render = fragment.querySelector('.render');
+        render.src = model.render;
+        render.alt = `${model.label} ground-truth and prediction skeleton comparison for ${sample.id}`;
+        const metrics = fragment.querySelector('.metrics');
+        addMetric(metrics, 'Left · overall MAE', model.hands[0].overall_mae_deg);
+        addMetric(metrics, 'Left · finger MAE', model.hands[0].finger_mae_deg);
+        addMetric(metrics, 'Left · wrist MAE', model.hands[0].wrist_mae_deg);
+        addMetric(metrics, 'Right · overall MAE', model.hands[1].overall_mae_deg);
+        addMetric(metrics, 'Right · finger MAE', model.hands[1].finger_mae_deg);
+        addMetric(metrics, 'Right · wrist MAE', model.hands[1].wrist_mae_deg);
+        grid.append(fragment);
+      });
+    }
+
+    fetch('manifest.json')
+      .then(response => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      })
+      .then(manifest => {
+        state.manifest = manifest;
+        renderControls();
+        renderSamples();
+      })
+      .catch(error => {
+        document.querySelector('#sample-grid').innerHTML = `<div class="empty">Could not load manifest.json: ${error.message}</div>`;
+      });
+  </script>
+</body>
+</html>
