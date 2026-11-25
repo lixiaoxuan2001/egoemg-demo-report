@@ -1,5 +1,9 @@
 # EgoEMG qualitative demo report
 
+## [▶ Open the interactive GT vs Prediction Demo](https://lixiaoxuan2001.github.io/egoemg-demo-report/)
+
+Switch between EMGFormer-S, ViT-S (RGB), and Fusion (RGB + EMG), and filter the two public demo sessions directly in the browser.
+
 This static GitHub Pages site shows 10 curated examples from the two public EgoEMG demo sessions. Each example compares ground-truth joint-angle articulation with predictions from:
 
 - EMGFormer-S
