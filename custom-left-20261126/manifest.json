@@ -1,0 +1,379 @@
+{
+  "created_at_utc": "2026-11-26T10:38:23.072102+00:00",
+  "hand": "left",
+  "model": "EgoEMG EMGFormer-S",
+  "official_commit": "6b6e4172b7141d78eda9983a919e6dcbf3a754df",
+  "checkpoint_file": "emgformer_s.ckpt",
+  "checkpoint_sha256": "71df50bb8373b38e43325c3ab21d4f96e13a6a4c2b4d7d6e1080bb51d72fee39",
+  "input_npz_sha256": "6298033affae1fe2388f66e64fabf13a3b7a3fb3275cf1252675717049069258",
+  "script_sha256": "1d4aeed53273327faa8778b2cbe00aaa5468f6e5ed70a3dee7cc2e0437fc0ef2",
+  "sources": [
+    {
+      "name": "WL-EMG 20261126 172929.mat",
+      "sha256": "0b8a33f1285fc0b27a421372012aaf0d135b2a48e9f431085d506e0f8c9f2271",
+      "samples": 20168
+    },
+    {
+      "name": "WL-EMG 20261126 172939.mat",
+      "sha256": "43f41cf672a2b74167b7986b4058cbca86c695cfd89522a685f59ff917a866b4",
+      "samples": 20176
+    }
+  ],
+  "fs_hz": 2000,
+  "samples": 40344,
+  "duration_s": 20.172,
+  "window_samples": 8000,
+  "window_starts": [
+    0,
+    7490,
+    14980,
+    22470,
+    29960,
+    32344
+  ],
+  "left_context": 510,
+  "right_context": 0,
+  "native_output_shape": [
+    6,
+    22,
+    150
+  ],
+  "alignment": "Official linear interpolate, align_corners=False, then mean of overlapping valid windows",
+  "native_token_time_mapping": "Each token j has align_corners=False bin center left_context + (j+0.5)*valid_length/token_count - 0.5 within its window; endpoints clamp during interpolation. This is label alignment, not causal availability.",
+  "valid_samples": 39834,
+  "missing_initial_s": 0.255,
+  "maximum_coverage": 2,
+  "joint_names": [
+    "THUMB_CMC_FE",
+    "THUMB_CMC_AA",
+    "THUMB_MCP_FE",
+    "THUMB_IP_FE",
+    "INDEX_MCP_AA",
+    "INDEX_MCP_FE",
+    "INDEX_PIP_FE",
+    "INDEX_DIP_FE",
+    "MIDDLE_MCP_AA",
+    "MIDDLE_MCP_FE",
+    "MIDDLE_PIP_FE",
+    "MIDDLE_DIP_FE",
+    "RING_MCP_AA",
+    "RING_MCP_FE",
+    "RING_PIP_FE",
+    "RING_DIP_FE",
+    "PINKY_MCP_AA",
+    "PINKY_MCP_FE",
+    "PINKY_PIP_FE",
+    "PINKY_DIP_FE",
+    "WRIST_FE",
+    "WRIST_DEVIATION"
+  ],
+  "window_transitions": [
+    {
+      "sample": 8000,
+      "time_s": 4.0,
+      "max_angle_jump_deg": 6.8719305992126465
+    },
+    {
+      "sample": 15490,
+      "time_s": 7.745,
+      "max_angle_jump_deg": 41.22425079345703
+    },
+    {
+      "sample": 22980,
+      "time_s": 11.49,
+      "max_angle_jump_deg": 27.28760528564453
+    },
+    {
+      "sample": 30470,
+      "time_s": 15.235,
+      "max_angle_jump_deg": 45.78958511352539
+    },
+    {
+      "sample": 32854,
+      "time_s": 16.427,
+      "max_angle_jump_deg": 2.563936710357666
+    },
+    {
+      "sample": 37960,
+      "time_s": 18.98,
+      "max_angle_jump_deg": 6.304892063140869
+    }
+  ],
+  "video": {
+    "fps": 30,
+    "frames": 606,
+    "duration_s": 20.2,
+    "frame_sampling": "floor(frame_time_s * 2000)",
+    "coordinate_system": "canonical left UmeTrack, mm, identity global wrist transform"
+  },
+  "software": {
+    "torch": "2.7.1+cu128",
+    "numpy": "1.26.4",
+    "cuda": "12.8"
+  },
+  "device": "NVIDIA RPBZZZ6",
+  "checks": {
+    "strict_checkpoint_restore": true,
+    "normalization_consistent": true,
+    "repeat_inference_consistent": true,
+    "neutral_fk_matches_rest": true,
+    "finite_valid_predictions": true,
+    "complete_valid_coverage_after_context": true,
+    "csv_npz_consistent": true,
+    "video_decode_verified": true,
+    "browser_playback_and_mobile_verified": true
+  },
+  "normalization_abs_z_gt_5_fraction": [
+    0.5351973031925441,
+    0.823294665873488,
+    0.298904421971049,
+    0.43297640293476103,
+    0.3585415427325005,
+    0.2832143565338092,
+    0.25084275232996234,
+    0.21083680348998612
+  ],
+  "angle_range_deg": {
+    "THUMB_CMC_FE": [
+      -32.3734245300293,
+      -8.803370475769043
+    ],
+    "THUMB_CMC_AA": [
+      -14.568977355957031,
+      13.275006294250488
+    ],
+    "THUMB_MCP_FE": [
+      19.15081024169922,
+      55.30991744995117
+    ],
+    "THUMB_IP_FE": [
+      -6.40008544921875,
+      10.70068073272705
+    ],
+    "INDEX_MCP_AA": [
+      -12.809310913085938,
+      -1.1374024152755737
+    ],
+    "INDEX_MCP_FE": [
+      -12.514667510986328,
+      37.7118034362793
+    ],
+    "INDEX_PIP_FE": [
+      22.437549591064453,
+      68.5546646118164
+    ],
+    "INDEX_DIP_FE": [
+      7.540694713592529,
+      29.346725463867188
+    ],
+    "MIDDLE_MCP_AA": [
+      -17.45537567138672,
+      -9.704462051391602
+    ],
+    "MIDDLE_MCP_FE": [
+      13.192389488220215,
+      51.738014221191406
+    ],
+    "MIDDLE_PIP_FE": [
+      11.662640571594238,
+      94.57271575927734
+    ],
+    "MIDDLE_DIP_FE": [
+      6.020737171173096,
+      38.45954132080078
+    ],
+    "RING_MCP_AA": [
+      -12.759793281555176,
+      -6.15281867980957
+    ],
+    "RING_MCP_FE": [
+      15.866869926452637,
+      56.309478759765625
+    ],
+    "RING_PIP_FE": [
+      5.7311625480651855,
+      75.80985260009766
+    ],
+    "RING_DIP_FE": [
+      3.154134750366211,
+      28.11185073852539
+    ],
+    "PINKY_MCP_AA": [
+      -23.914634704589844,
+      -10.862771987915039
+    ],
+    "PINKY_MCP_FE": [
+      10.863439559936523,
+      56.74424362182617
+    ],
+    "PINKY_PIP_FE": [
+      6.803781986236572,
+      60.75041198730469
+    ],
+    "PINKY_DIP_FE": [
+      3.017526149749756,
+      34.65665817260742
+    ],
+    "WRIST_FE": [
+      -39.248783111572266,
+      10.25478458404541
+    ],
+    "WRIST_DEVIATION": [
+      -32.627662658691406,
+      -0.4984440207481384
+    ]
+  },
+  "assumptions": {
+    "input_unit": "uV (unverified)",
+    "channel_mapping": "source columns 1..8 unchanged (unverified)",
+    "continuous_files": "assumed",
+    "preprocessing": "approximate paper-frequency recipe; saved input already appears filtered"
+  },
+  "interpretation": "Exploratory unlabeled predictions; no measured accuracy. No amplitude correction, clipping, or temporal smoothing. Noncausal offline inference.",
+  "rendering": {
+    "resolution": [
+      1920,
+      1080
+    ],
+    "codec": "H.264",
+    "pixel_format": "yuv420p",
+    "faststart": true,
+    "smoothing": false,
+    "angle_clipping": false,
+    "left_model_mirrored": false,
+    "views": [
+      "oblique",
+      "palm-plane"
+    ],
+    "boundary_caution_half_width_s": 0.5,
+    "window_transition_label_half_width_s": 0.1
+  },
+  "preprocessing": {
+    "recipe": {
+      "highpass_hz": 20,
+      "lowpass_hz": 450,
+      "butterworth_order_each": 4,
+      "notch_hz": [
+        50,
+        100,
+        150,
+        200,
+        250,
+        300,
+        350,
+        400,
+        450
+      ],
+      "notch_q": 30,
+      "notch_order_each": 2,
+      "zero_phase": true,
+      "method": "combined SOS sosfiltfilt",
+      "padtype": "odd",
+      "padlen": 2000,
+      "note": "Forward-backward magnitude is single-pass magnitude squared; parameters are engineering defaults"
+    },
+    "normalization_asset_sha256": "eb8542c1f85ca8df7ef69273a8ad7597269e472edf1b52c7dbcf682f58461639"
+  },
+  "artifacts": {
+    "README.md": {
+      "bytes": 5928,
+      "sha256": "d74dea66c02e941c801f1123dae22fa238e7e5ab60991840167d11e7044d992b"
+    },
+    "assets/egoemg_emg_normalization_filtered.json": {
+      "bytes": 1257,
+      "sha256": "eb8542c1f85ca8df7ef69273a8ad7597269e472edf1b52c7dbcf682f58461639"
+    },
+    "attribution/EgoEMG_LICENSE.txt": {
+      "bytes": 1867,
+      "sha256": "53ef9795e29a0d77e91feb5a6c405c21741afd2cb9eb8d3feffb4ae0cc0ab0c7"
+    },
+    "attribution/UmeTrack_LICENSE.txt": {
+      "bytes": 19333,
+      "sha256": "336255dc30193e8e15d689d9481bb05673d89055718f3a96923a7ffb99adbbaf"
+    },
+    "data/metrics.csv": {
+      "bytes": 6462,
+      "sha256": "e48357877ada3fbf71d1769e902501855e7e32b05bbdde526c6bc197c34868fc"
+    },
+    "data/pose_video_data.npz": {
+      "bytes": 161225,
+      "sha256": "20b4b19bb484de397af173efa24876da7990b2a8e52217273fe1d4e1542fe71d"
+    },
+    "data/predictions.csv": {
+      "bytes": 19604276,
+      "sha256": "c1bb9d7740ec67b25b01fb463be57160b2aed79bc74e52d8741a5f14317a37e5"
+    },
+    "data/predictions.npz": {
+      "bytes": 9711802,
+      "sha256": "e8844c7b9a43b31ce2d88483d05dee589f240b8b634891e6dd238a469e632353"
+    },
+    "data/preprocessing_metadata.json": {
+      "bytes": 5678,
+      "sha256": "aa68cf92ad725ac2ad36e594c7412a66fe4f3189c80dc1fa523f4732739af5de"
+    },
+    "data/viewer_data.json": {
+      "bytes": 282514,
+      "sha256": "35585edd883646a8ef278693da43134710cc4a07e0567359b027e85ff33fd594"
+    },
+    "figures/filter_response.png": {
+      "bytes": 113567,
+      "sha256": "d1fcacca09466c2766b69113039f6b2afaa52569ab80a763605bf4fb1802977e"
+    },
+    "figures/joint_angles.png": {
+      "bytes": 687329,
+      "sha256": "b4a40b29520f4e504b42699f5e59c2637fe82e856965811061013f1e201703a9"
+    },
+    "figures/psd_comparison.png": {
+      "bytes": 1042011,
+      "sha256": "bdac6871ea08a4a72dd0a12404dfef758c7653ecba00463c7eafdcc85d31420b"
+    },
+    "figures/waveforms_boundary_1.png": {
+      "bytes": 544535,
+      "sha256": "1193cde76735d6de8424f5b910ef036724bfce091dcbc4a90d4066fa8bc073f6"
+    },
+    "figures/waveforms_full.png": {
+      "bytes": 338055,
+      "sha256": "1a025c85b93429a57ad9a8cbfcd8cfff5efaf097ea016a1c9eaffc692880d95f"
+    },
+    "figures/waveforms_zoom.png": {
+      "bytes": 560791,
+      "sha256": "a2a766c4358710953bf798abba7c104dc4b7a6b8f0096e806b0f3dc42bbaf091"
+    },
+    "index.html": {
+      "bytes": 14621,
+      "sha256": "d54b99fa30dd8917fc7b5ce6b1c1b6d05e3b6fe4a65f2acf9faad4f8b683a2fe"
+    },
+    "media/left_hand_pose.mp4": {
+      "bytes": 1253276,
+      "sha256": "ff5e6708bfd238c06bb4645436e19ce448d9905611fca917e32e131e89efa931"
+    },
+    "media/video_poster.jpg": {
+      "bytes": 192802,
+      "sha256": "4f28060dce1341cc637c830e1369807decefd146ae096249686c5a98944d6491"
+    },
+    "scripts/infer_left_emg.py": {
+      "bytes": 10726,
+      "sha256": "1d4aeed53273327faa8778b2cbe00aaa5468f6e5ed70a3dee7cc2e0437fc0ef2"
+    },
+    "scripts/preprocess_emg.py": {
+      "bytes": 19181,
+      "sha256": "ef1275cf2545b8a83a6b7b90e3cefc49509e81291160ac6fb451cf103bace940"
+    },
+    "scripts/render_left_emg.py": {
+      "bytes": 9455,
+      "sha256": "91b6241642b9e52542061ac0827fd546dd269b2bcb2362d5d92981c4d44f32e8"
+    },
+    "scripts/test_infer_left_emg.py": {
+      "bytes": 1991,
+      "sha256": "c71351b7a5d292e65a197aba5c554221316694eec3f896ed906f0f0fe3b764cb"
+    },
+    "scripts/test_preprocess_emg.py": {
+      "bytes": 1730,
+      "sha256": "2ab5a0ecd5ff167ba1a99f29093b906366d6b296bcdb2b0f43cd4a284aaec69a"
+    },
+    "validation.json": {
+      "bytes": 1552,
+      "sha256": "a7c41e23da5742aa47e8f5cd16c97a21dbb5f2bd26fb98a8b699f8b40b3afec4"
+    }
+  }
+}

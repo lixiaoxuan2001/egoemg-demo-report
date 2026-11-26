@@ -1,0 +1,215 @@
+{
+  "created_at": "2026-11-26T18:14:30.720982+08:00",
+  "description": "Approximate paper-frequency recipe applied to already processed saved EMG",
+  "hand": "left",
+  "fs_hz": 2000,
+  "input_unit_assumption": "uV",
+  "unit_verified": false,
+  "channel_mapping_verified": false,
+  "channel_order": "preserved; source columns 1 through 8",
+  "continuity_assumed": true,
+  "original_samples": 40344,
+  "duration_s": 20.172,
+  "inputs": [
+    {
+      "path": "WL-EMG 20261126 172929.mat",
+      "sha256": "0b8a33f1285fc0b27a421372012aaf0d135b2a48e9f431085d506e0f8c9f2271",
+      "samples": 20168
+    },
+    {
+      "path": "WL-EMG 20261126 172939.mat",
+      "sha256": "43f41cf672a2b74167b7986b4058cbca86c695cfd89522a685f59ff917a866b4",
+      "samples": 20176
+    }
+  ],
+  "filter": {
+    "highpass_hz": 20,
+    "lowpass_hz": 450,
+    "butterworth_order_each": 4,
+    "notch_hz": [
+      50,
+      100,
+      150,
+      200,
+      250,
+      300,
+      350,
+      400,
+      450
+    ],
+    "notch_q": 30,
+    "notch_order_each": 2,
+    "zero_phase": true,
+    "method": "combined SOS sosfiltfilt",
+    "padtype": "odd",
+    "padlen": 2000,
+    "note": "Forward-backward magnitude is single-pass magnitude squared; parameters are engineering defaults"
+  },
+  "normalization": {
+    "statistics": {
+      "mean": [
+        -2.7841759870419403e-10,
+        6.576067523423629e-09,
+        -7.271612539726493e-10,
+        7.427873622824462e-10,
+        -1.1764087888151674e-09,
+        1.7285104534580238e-09,
+        -3.2740794284651913e-09,
+        -4.002822383551754e-09
+      ],
+      "std": [
+        0.0022183865385024186,
+        0.002204223809725525,
+        0.0022370569180579407,
+        0.001991637071135233,
+        0.00222752283349485,
+        0.0023214218922580545,
+        0.002470846835492124,
+        0.002856629661776638
+      ],
+      "rows": 141995382,
+      "split": "train",
+      "unit": "mV",
+      "valid_emg_only": true
+    },
+    "stats_sha256": "eb8542c1f85ca8df7ef69273a8ad7597269e472edf1b52c7dbcf682f58461639",
+    "epsilon_mv": 1e-06,
+    "official_repository_commit": "6b6e4172b7141d78eda9983a919e6dcbf3a754df"
+  },
+  "windows": {
+    "shape": [
+      5,
+      8,
+      8000
+    ],
+    "dtype": "float32",
+    "layout": "batch,channel,time",
+    "starts_samples": [
+      0,
+      8000,
+      16000,
+      24000,
+      32000
+    ],
+    "boundary_caution": [
+      true,
+      false,
+      true,
+      false,
+      true
+    ],
+    "tail_samples": 344,
+    "status": "candidate inputs; unit and channel mapping require confirmation; no inference performed"
+  },
+  "caution": {
+    "margin_samples": 1000,
+    "note": "Advisory, not a measured transient duration or validity guarantee"
+  },
+  "psd": {
+    "fs": 2000,
+    "nperseg": 4096,
+    "noverlap": 2048,
+    "window": "hann",
+    "detrend": "constant",
+    "scaling": "density",
+    "trim_each_file_samples": 1000
+  },
+  "zoom_interval_s": [
+    14.0215,
+    16.0215
+  ],
+  "normalized_abs_gt5_fraction": [
+    0.5351973031925441,
+    0.823294665873488,
+    0.298904421971049,
+    0.43297640293476103,
+    0.3585415427325005,
+    0.2832143565338092,
+    0.25084275232996234,
+    0.21083680348998612
+  ],
+  "validation": {
+    "tone_tests": [
+      {
+        "frequency_hz": 10,
+        "measured_gain": 0.0038831166179166326,
+        "expected_double_pass_gain": 0.003883116617917514
+      },
+      {
+        "frequency_hz": 20,
+        "measured_gain": 0.49981998236147684,
+        "expected_double_pass_gain": 0.49981998236148745
+      },
+      {
+        "frequency_hz": 80,
+        "measured_gain": 0.9919987500702595,
+        "expected_double_pass_gain": 0.9919987500708561
+      },
+      {
+        "frequency_hz": 275,
+        "measured_gain": 0.91825908559494,
+        "expected_double_pass_gain": 0.9182590855951536
+      },
+      {
+        "frequency_hz": 450,
+        "measured_gain": 1.4676569041505208e-13,
+        "expected_double_pass_gain": 2.824962226033271e-30
+      },
+      {
+        "frequency_hz": 700,
+        "measured_gain": 0.0012826972981957005,
+        "expected_double_pass_gain": 0.001282697298245194
+      },
+      {
+        "frequency_hz": 50,
+        "measured_gain": 7.591802245170769e-10,
+        "expected_double_pass_gain": 1.9000683030329208e-26
+      },
+      {
+        "frequency_hz": 100,
+        "measured_gain": 7.710805604541388e-13,
+        "expected_double_pass_gain": 1.8840676659891594e-27
+      },
+      {
+        "frequency_hz": 150,
+        "measured_gain": 3.904957318097998e-13,
+        "expected_double_pass_gain": 1.2114064130305531e-27
+      },
+      {
+        "frequency_hz": 200,
+        "measured_gain": 2.834802644764237e-13,
+        "expected_double_pass_gain": 1.602505988711921e-28
+      },
+      {
+        "frequency_hz": 250,
+        "measured_gain": 2.3230429775803745e-13,
+        "expected_double_pass_gain": 2.2076913067920074e-30
+      },
+      {
+        "frequency_hz": 300,
+        "measured_gain": 2.0145629963355582e-13,
+        "expected_double_pass_gain": 1.0878054815719937e-28
+      },
+      {
+        "frequency_hz": 350,
+        "measured_gain": 1.7997232998454652e-13,
+        "expected_double_pass_gain": 7.495513482638559e-29
+      },
+      {
+        "frequency_hz": 400,
+        "measured_gain": 1.6208827820345418e-13,
+        "expected_double_pass_gain": 5.714791244720412e-29
+      }
+    ],
+    "npz_mat_roundtrip": "passed",
+    "normalization_reference": "passed",
+    "original_hashes_unchanged": true
+  },
+  "software": {
+    "python": "3.14.7",
+    "numpy": "2.5.5",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2"
+  },
+  "script_sha256": "ef1275cf2545b8a83a6b7b90e3cefc49509e81291160ac6fb451cf103bace940"
+}

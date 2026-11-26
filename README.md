@@ -30,3 +30,7 @@ No checkpoints, raw EMG streams, private filesystem paths, SSH details, or crede
 ## License and attribution
 
 EgoEMG-authored demo recordings and annotations are licensed under CC BY-NC 4.0. The images and derived articulation renders in this repository are a noncommercial adaptation and attribute the EgoEMG authors. See [`LICENSE.md`](LICENSE.md).
+
+## Custom left-hand recording (2026-11-26)
+
+[Open the complete prediction video and waveform comparisons](https://lixiaoxuan2001.github.io/egoemg-demo-report/custom-left-20261126/). This separate experiment uses a user-recorded 20.172 s, 8-channel left-wrist EMG stream, with no ground-truth pose labels. Predictions, MP4 video, plots, provenance, and reproducibility scripts are included; raw EMG and checkpoints are not published. See [experiment notes](custom-left-20261126/README.md), including the unit/channel assumptions and window-boundary discontinuities.

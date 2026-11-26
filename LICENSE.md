@@ -2,7 +2,7 @@
 
 ## EgoEMG-derived media and results
 
-The source RGB frames, annotations, and derived articulation visualizations in this repository are adapted from the EgoEMG public demo subset and are licensed under the Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0).
+The source RGB frames, annotations, and derived articulation visualizations under `assets/` in this repository are adapted from the EgoEMG public demo subset and are licensed under the Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0).
 
 Attribution: EgoEMG authors, “EgoEMG,” arXiv:2605.05712.
 
@@ -24,3 +24,7 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+## Custom recording experiment
+
+The separate `custom-left-20261126/` experiment uses a user-recorded EMG sequence, not recordings or annotations from the official EgoEMG demo dataset. It includes model-derived joint angles and canonical skeleton renders using the EgoEMG code and UmeTrack generic hand model. Attribution: EgoEMG authors and Meta Platforms, Inc. (UmeTrack). Third-party terms remain applicable; the provided EgoEMG and UmeTrack license texts are included in `custom-left-20261126/attribution/`. No model checkpoint or original EMG recording is redistributed.
