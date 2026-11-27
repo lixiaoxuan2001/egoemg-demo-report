@@ -1,0 +1,234 @@
+{
+  "model": "EgoEMG EMGFormer-S",
+  "model_sha256": "71df50bb8373b38e43325c3ab21d4f96e13a6a4c2b4d7d6e1080bb51d72fee39",
+  "code_commit": "6b6e4172b7141d78eda9983a919e6dcbf3a754df",
+  "fps": 30,
+  "duration_seconds": 4,
+  "frames": 120,
+  "emg_channels_per_hand": 8,
+  "waveform_scale_mV": 0.005,
+  "emg_display": "Filtered recordings at source amplitude, min/max per horizontal pixel. Pink markers indicate extrema past the common display range.",
+  "alignment": "Published UTC timestamps. RGB uses the preceding valid timestamp and physical-frame map. Pose uses two overlapping windows per wrist with a smooth transition from 1.5 to 2.5 seconds.",
+  "clips": [
+    {
+      "id": "pinch",
+      "session": "sess_20260404_153935",
+      "camera_stream": "gopro/rgb",
+      "offset_seconds": 40,
+      "window_start_utc_us": 1775288552747514,
+      "split": "Validation",
+      "max_rgb_age_us": 49345,
+      "unique_rgb_frames": 115,
+      "reference_rgb_frames": [
+        {
+          "output_frame": 0,
+          "physical_rgb_frame": 2399,
+          "rgb_age_us": 880
+        },
+        {
+          "output_frame": 60,
+          "physical_rgb_frame": 2518,
+          "rgb_age_us": 15627
+        },
+        {
+          "output_frame": 119,
+          "physical_rgb_frame": 2637,
+          "rgb_age_us": 13502
+        }
+      ],
+      "hands": {
+        "left": {
+          "window_start_rows": [
+            79480,
+            79990
+          ],
+          "prediction_frame_count": 120,
+          "gt_valid_frame_count": 120,
+          "emg_display_samples": 7999,
+          "max_emg_age_us": 499,
+          "angle_motion_mean_degrees": 0.5682374835014343,
+          "gesture_class": 42,
+          "object_id": -1,
+          "waveform_display_overflow_samples": 347
+        },
+        "right": {
+          "window_start_rows": [
+            79479,
+            79989
+          ],
+          "prediction_frame_count": 120,
+          "gt_valid_frame_count": 120,
+          "emg_display_samples": 7999,
+          "max_emg_age_us": 498,
+          "angle_motion_mean_degrees": 0.5197561979293823,
+          "gesture_class": 42,
+          "object_id": -1,
+          "waveform_display_overflow_samples": 104
+        }
+      }
+    },
+    {
+      "id": "clap",
+      "session": "sess_20260404_153935",
+      "camera_stream": "gopro/rgb",
+      "offset_seconds": 164,
+      "window_start_utc_us": 1775288676747514,
+      "split": "Train",
+      "max_rgb_age_us": 13187,
+      "unique_rgb_frames": 120,
+      "reference_rgb_frames": [
+        {
+          "output_frame": 0,
+          "physical_rgb_frame": 9839,
+          "rgb_age_us": 12374
+        },
+        {
+          "output_frame": 60,
+          "physical_rgb_frame": 9959,
+          "rgb_age_us": 11122
+        },
+        {
+          "output_frame": 119,
+          "physical_rgb_frame": 10077,
+          "rgb_age_us": 8654
+        }
+      ],
+      "hands": {
+        "left": {
+          "window_start_rows": [
+            327449,
+            327959
+          ],
+          "prediction_frame_count": 120,
+          "gt_valid_frame_count": 120,
+          "emg_display_samples": 7999,
+          "max_emg_age_us": 497,
+          "angle_motion_mean_degrees": 0.5618066191673279,
+          "waveform_display_overflow_samples": 99
+        },
+        "right": {
+          "window_start_rows": [
+            327448,
+            327958
+          ],
+          "prediction_frame_count": 120,
+          "gt_valid_frame_count": 120,
+          "emg_display_samples": 7999,
+          "max_emg_age_us": 498,
+          "angle_motion_mean_degrees": 0.2665962874889374,
+          "waveform_display_overflow_samples": 35
+        }
+      }
+    },
+    {
+      "id": "carton",
+      "session": "sess_20261016_161026",
+      "camera_stream": "showee_head/camera",
+      "offset_seconds": 60,
+      "window_start_utc_us": 1792140841380841,
+      "split": "Train",
+      "max_rgb_age_us": 2386,
+      "unique_rgb_frames": 120,
+      "reference_rgb_frames": [
+        {
+          "output_frame": 0,
+          "physical_rgb_frame": 3599,
+          "rgb_age_us": 2381
+        },
+        {
+          "output_frame": 60,
+          "physical_rgb_frame": 3719,
+          "rgb_age_us": 2356
+        },
+        {
+          "output_frame": 119,
+          "physical_rgb_frame": 3837,
+          "rgb_age_us": 2321
+        }
+      ],
+      "hands": {
+        "left": {
+          "window_start_rows": [
+            119487,
+            119997
+          ],
+          "prediction_frame_count": 120,
+          "gt_valid_frame_count": 120,
+          "emg_display_samples": 7999,
+          "max_emg_age_us": 498,
+          "angle_motion_mean_degrees": 0.9513557553291321,
+          "waveform_display_overflow_samples": 0
+        },
+        "right": {
+          "window_start_rows": [
+            119486,
+            119996
+          ],
+          "prediction_frame_count": 120,
+          "gt_valid_frame_count": 120,
+          "emg_display_samples": 7999,
+          "max_emg_age_us": 498,
+          "angle_motion_mean_degrees": 0.4502531886100769,
+          "waveform_display_overflow_samples": 8
+        }
+      }
+    },
+    {
+      "id": "pudding",
+      "session": "sess_20261016_161026",
+      "camera_stream": "showee_head/camera",
+      "offset_seconds": 565,
+      "window_start_utc_us": 1792141346380841,
+      "split": "Test",
+      "max_rgb_age_us": 10914,
+      "unique_rgb_frames": 120,
+      "reference_rgb_frames": [
+        {
+          "output_frame": 0,
+          "physical_rgb_frame": 33898,
+          "rgb_age_us": 10907
+        },
+        {
+          "output_frame": 60,
+          "physical_rgb_frame": 34018,
+          "rgb_age_us": 10850
+        },
+        {
+          "output_frame": 119,
+          "physical_rgb_frame": 34136,
+          "rgb_age_us": 10852
+        }
+      ],
+      "hands": {
+        "left": {
+          "window_start_rows": [
+            1129467,
+            1129977
+          ],
+          "prediction_frame_count": 120,
+          "gt_valid_frame_count": 120,
+          "emg_display_samples": 7999,
+          "max_emg_age_us": 498,
+          "angle_motion_mean_degrees": 0.7001038789749146,
+          "gesture_class": 17,
+          "object_id": 0,
+          "waveform_display_overflow_samples": 0
+        },
+        "right": {
+          "window_start_rows": [
+            1129464,
+            1129974
+          ],
+          "prediction_frame_count": 120,
+          "gt_valid_frame_count": 120,
+          "emg_display_samples": 7999,
+          "max_emg_age_us": 499,
+          "angle_motion_mean_degrees": 0.41260188817977905,
+          "gesture_class": 17,
+          "object_id": 0,
+          "waveform_display_overflow_samples": 5
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EgoEMG · 双手同步对比</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0a1420;
+      --panel: #101f2d;
+      --line: #2c4053;
+      --text: #f2f7fa;
+      --muted: #afc0d0;
+      --teal: #82e2ca;
+      --amber: #ffc078;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.6 system-ui, sans-serif;
+    }
+    .wrap { width: min(1340px, calc(100% - 48px)); margin-inline: auto; }
+    a { color: var(--teal); text-underline-offset: .2em; }
+    a:hover { color: white; }
+    header { padding: 28px 0 24px; border-bottom: 1px solid var(--line); }
+    h1 { margin: 14px 0 6px; font-size: clamp(30px, 5vw, 49px); line-height: 1.2; }
+    h2 { margin: 0; font-size: clamp(18px, 3vw, 26px); }
+    p { margin: .4rem 0; }
+    .meta { color: var(--muted); font-size: .9rem; }
+    .guide { margin: 14px 0 0; max-width: 76ch; }
+    .legend { margin-top: 12px; display: flex; gap: 18px; flex-wrap: wrap; }
+    .left { color: var(--teal); }
+    .right { color: var(--amber); }
+    nav { display: flex; flex-wrap: wrap; gap: 5px 23px; margin-top: 16px; }
+    main { display: grid; gap: 24px; padding-block: 28px; }
+    article {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      scroll-margin-top: 16px;
+    }
+    .card-heading {
+      padding: 13px 17px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 2px 16px;
+    }
+    video { display: block; width: 100%; aspect-ratio: 16 / 9; background: var(--bg); }
+    footer { border-top: 1px solid var(--line); padding: 18px 0 28px; }
+    @media (max-width: 550px) {
+      .wrap { width: calc(100% - 22px); }
+      .card-heading { padding: 9px 12px; }
+      main { gap: 16px; padding-block: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a href="../">← EgoEMG 演示首页</a>
+      <h1>EgoEMG · 双手同步对比</h1>
+      <p class="meta">4 个片段 · 每段 4 秒 · EMGFormer-S</p>
+      <p class="guide">每个播放器从左到右依次显示第一视角原视频、模型预测姿态和实测 EMG。拖动进度条可同时定位三栏。波形保留数据集滤波后的 mV 幅值，四段统一用 ±0.005 mV 的显示范围，粉色标记表示超出范围的峰值。</p>
+      <div class="legend"><span class="left">● 左手 · CH 1–8</span><span class="right">● 右手 · CH 1–8</span></div>
+      <nav aria-label="跳到片段">
+        <a href="#pinch">手指捏合</a>
+        <a href="#clap">双手拍合</a>
+        <a href="#carton">椰奶纸盒</a>
+        <a href="#pudding">布丁粉盒</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <article id="pinch">
+      <div class="card-heading">
+        <h2>拇指与中指捏合</h2>
+        <p class="meta">徒手录制 00:40–00:44 · 验证集</p>
+      </div>
+      <video controls playsinline preload="none" poster="media/pinch.jpg" aria-label="拇指与中指捏合的原视频、双手预测姿态与 EMG">
+        <source src="media/pinch.mp4" type="video/mp4">
+        <a href="media/pinch.mp4">打开 MP4</a>
+      </video>
+    </article>
+    <article id="clap">
+      <div class="card-heading">
+        <h2>双手拍合</h2>
+        <p class="meta">徒手录制 02:44–02:48 · 训练集</p>
+      </div>
+      <video controls playsinline preload="none" poster="media/clap.jpg" aria-label="双手拍合的原视频、双手预测姿态与 EMG">
+        <source src="media/clap.mp4" type="video/mp4">
+        <a href="media/clap.mp4">打开 MP4</a>
+      </video>
+    </article>
+    <article id="carton">
+      <div class="card-heading">
+        <h2>翻转椰奶纸盒</h2>
+        <p class="meta">物体交互录制 01:00–01:04 · 训练集</p>
+      </div>
+      <video controls playsinline preload="none" poster="media/carton.jpg" aria-label="翻转椰奶纸盒的原视频、双手预测姿态与 EMG">
+        <source src="media/carton.mp4" type="video/mp4">
+        <a href="media/carton.mp4">打开 MP4</a>
+      </video>
+    </article>
+    <article id="pudding">
+      <div class="card-heading">
+        <h2>双手操作布丁粉盒</h2>
+        <p class="meta">物体交互录制 09:25–09:29 · 测试集</p>
+      </div>
+      <video controls playsinline preload="none" poster="media/pudding.jpg" aria-label="双手操作布丁粉盒的原视频、双手预测姿态与 EMG">
+        <source src="media/pudding.mp4" type="video/mp4">
+        <a href="media/pudding.mp4">打开 MP4</a>
+      </video>
+    </article>
+  </main>
+  <footer class="wrap meta">
+    <p>定性演示。骨架以固定视角和手腕位置显示预测关节的运动。左右手分别推理，每只手用两个重叠窗口覆盖完整片段。</p>
+    <p>数据来源为 <a href="https://arxiv.org/abs/2605.05712">EgoEMG 作者发布的公开 Demo</a>，改编内容采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>。<a href="../LICENSE.md">署名与改编说明</a> · <a href="media/manifest.json">运行与对齐记录</a></p>
+  </footer>
+</body>
+</html>
