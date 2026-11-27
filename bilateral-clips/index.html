@@ -65,10 +65,11 @@
     <div class="wrap">
       <a href="../">← EgoEMG 演示首页</a>
       <h1>EgoEMG · 双手同步对比</h1>
-      <p class="meta">4 个片段 · 每段 4 秒 · EMGFormer-S</p>
-      <p class="guide">每个播放器从左到右依次显示第一视角原视频、模型预测姿态和实测 EMG。拖动进度条可同时定位三栏。波形保留数据集滤波后的 mV 幅值，四段统一用 ±0.005 mV 的显示范围，粉色标记表示超出范围的峰值。</p>
+      <p class="meta">1 段连续 20 秒 · 4 段各 4 秒 · EMGFormer-S</p>
+      <p class="guide">每个播放器从左到右依次显示第一视角原视频、模型预测姿态和实测 EMG。拖动进度条可同时定位三栏。波形保留数据集滤波后的 mV 幅值，统一用 ±0.005 mV 的显示范围，粉色标记表示超出范围的峰值。</p>
       <div class="legend"><span class="left">● 左手 · CH 1–8</span><span class="right">● 右手 · CH 1–8</span></div>
       <nav aria-label="跳到片段">
+        <a href="#continuous">连续 20 秒</a>
         <a href="#pinch">手指捏合</a>
         <a href="#clap">双手拍合</a>
         <a href="#carton">椰奶纸盒</a>
@@ -77,6 +78,16 @@
     </div>
   </header>
   <main class="wrap">
+    <article id="continuous">
+      <div class="card-heading">
+        <h2>连续 20 秒 · 双手操作布丁粉盒</h2>
+        <p class="meta">同一段物体交互录制 09:25–09:45 · 测试集</p>
+      </div>
+      <video controls playsinline preload="none" poster="media/pudding-20s.jpg" aria-label="连续 20 秒的原视频、双手预测姿态与 EMG">
+        <source src="media/pudding-20s.mp4" type="video/mp4">
+        <a href="media/pudding-20s.mp4">打开 MP4</a>
+      </video>
+    </article>
     <article id="pinch">
       <div class="card-heading">
         <h2>拇指与中指捏合</h2>
@@ -119,8 +130,8 @@
     </article>
   </main>
   <footer class="wrap meta">
-    <p>定性演示。骨架以固定视角和手腕位置显示预测关节的运动。左右手分别推理，每只手用两个重叠窗口覆盖完整片段。</p>
-    <p>数据来源为 <a href="https://arxiv.org/abs/2605.05712">EgoEMG 作者发布的公开 Demo</a>，改编内容采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>。<a href="../LICENSE.md">署名与改编说明</a> · <a href="media/manifest.json">运行与对齐记录</a></p>
+    <p>定性演示。骨架以固定视角和手腕位置显示预测关节的运动。左右手分别推理。模型每次读取 4 秒 EMG，预测覆盖整段录制，重叠窗口之间平滑过渡。</p>
+    <p>数据来源为 <a href="https://arxiv.org/abs/2605.05712">EgoEMG 作者发布的公开 Demo</a>，改编内容采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>。<a href="../LICENSE.md">署名与改编说明</a> · <a href="media/manifest.json">4 秒片段对齐记录</a> · <a href="media/manifest-20s.json">20 秒片段对齐记录</a></p>
   </footer>
 </body>
 </html>

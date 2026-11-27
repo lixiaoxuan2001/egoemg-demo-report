@@ -12,9 +12,9 @@ This static GitHub Pages site shows 10 curated examples from the two public EgoE
 
 The viewer includes the public demo RGB frame, a bilateral canonical skeleton overlay, and per-hand angle MAE in degrees.
 
-## Four synchronized bilateral clips
+## Synchronized bilateral clips
 
-[Play the four 4-second comparisons](https://lixiaoxuan2001.github.io/egoemg-demo-report/bilateral-clips/). Each MP4 shows the first-person RGB recording, fixed-view EMGFormer-S pose for both hands, and 8 filtered EMG channels per wrist with a shared playback cursor. The page identifies the official split and time in the demo session for each clip. See the [inference and alignment manifest](bilateral-clips/media/manifest.json).
+[Play the continuous 20-second example and four 4-second comparisons](https://lixiaoxuan2001.github.io/egoemg-demo-report/bilateral-clips/). Each MP4 shows the first-person RGB recording, fixed-view EMGFormer-S pose for both hands, and 8 filtered EMG channels per wrist with a shared playback cursor. The page identifies the official split and time in the demo session for each clip. See the alignment manifests for the [short clips](bilateral-clips/media/manifest.json) and the [continuous test clip](bilateral-clips/media/manifest-20s.json).
 
 ## Interpretation
 

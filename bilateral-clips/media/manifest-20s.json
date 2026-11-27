@@ -1,0 +1,89 @@
+{
+  "model": "EgoEMG EMGFormer-S",
+  "model_sha256": "71df50bb8373b38e43325c3ab21d4f96e13a6a4c2b4d7d6e1080bb51d72fee39",
+  "code_commit": "6b6e4172b7141d78eda9983a919e6dcbf3a754df",
+  "fps": 30,
+  "duration_seconds": 20,
+  "frames": 600,
+  "emg_channels_per_hand": 8,
+  "model_window_seconds": 4.0,
+  "waveform_scale_mV": 0.005,
+  "emg_display": "Filtered recordings at source amplitude, min/max per horizontal pixel. Pink markers indicate extrema past the common display range.",
+  "alignment": "Published UTC timestamps. RGB uses the preceding valid timestamp and physical-frame map. Pose uses overlapping 4-second windows per wrist with smooth blends.",
+  "clips": [
+    {
+      "id": "pudding-20s",
+      "session": "sess_20261016_161026",
+      "camera_stream": "showee_head/camera",
+      "offset_seconds": 565,
+      "window_start_utc_us": 1792141346380841,
+      "split": "Test",
+      "max_source_rgb_gap_us": 16905,
+      "max_rgb_age_us": 10914,
+      "unique_rgb_frames": 600,
+      "reference_rgb_frames": [
+        {
+          "output_frame": 0,
+          "physical_rgb_frame": 33898,
+          "rgb_age_us": 10907
+        },
+        {
+          "output_frame": 300,
+          "physical_rgb_frame": 34498,
+          "rgb_age_us": 10752
+        },
+        {
+          "output_frame": 599,
+          "physical_rgb_frame": 35096,
+          "rgb_age_us": 10589
+        }
+      ],
+      "hands": {
+        "left": {
+          "window_start_rows": [
+            1129467,
+            1133530,
+            1137594,
+            1141658,
+            1145722,
+            1149785,
+            1153849,
+            1157913,
+            1161977
+          ],
+          "prediction_frame_count": 600,
+          "gt_valid_frame_count": 600,
+          "emg_display_samples": 39999,
+          "max_emg_age_us": 499,
+          "max_emg_sample_gap_us": 501,
+          "angle_motion_mean_degrees": 0.5090781450271606,
+          "gesture_class": 17,
+          "object_id": 0,
+          "waveform_display_overflow_samples": 0
+        },
+        "right": {
+          "window_start_rows": [
+            1129464,
+            1133527,
+            1137591,
+            1141655,
+            1145719,
+            1149782,
+            1153846,
+            1157910,
+            1161974
+          ],
+          "prediction_frame_count": 600,
+          "gt_valid_frame_count": 600,
+          "emg_display_samples": 39999,
+          "max_emg_age_us": 499,
+          "max_emg_sample_gap_us": 501,
+          "angle_motion_mean_degrees": 0.30468207597732544,
+          "gesture_class": 17,
+          "object_id": 0,
+          "waveform_display_overflow_samples": 15
+        }
+      }
+    }
+  ]
+}

@@ -13,7 +13,7 @@ Changes made: ten frames were selected from the public demo sessions; RGB frames
 
 These materials are provided for noncommercial research and educational inspection. Third-party materials retain their respective licenses.
 
-The four MP4s and poster images under `bilateral-clips/media/` are also noncommercial adaptations of the EgoEMG public demo. The videos trim the head camera recordings, render the two hands as fixed-view UmeTrack skeletons using the official EMGFormer-S checkpoint, and plot the released filtered EMG waveforms. The generic UmeTrack skeleton is attributed to Meta Platforms, Inc.
+The MP4s and poster images under `bilateral-clips/media/` are also noncommercial adaptations of the EgoEMG public demo. The videos trim the head camera recordings, render the two hands as fixed-view UmeTrack skeletons using the official EMGFormer-S checkpoint, and plot the released filtered EMG waveforms. The generic UmeTrack skeleton is attributed to Meta Platforms, Inc.
 
 ## Site source
 
